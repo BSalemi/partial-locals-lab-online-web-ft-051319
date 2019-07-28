@@ -15,11 +15,10 @@ class Student < ActiveRecord::Base
   has_many :classrooms, through: :classroom_students
 
   def self.search(input="")
-    students = Student.all
     if input != ""
-      students.select{|student| student.name == input}
+      self.all.select{|student| student.name == input}
     else
-      students
+      self.all
     end
   end
 
