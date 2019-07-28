@@ -16,7 +16,7 @@ class Student < ActiveRecord::Base
 
   def self.search(input)
     if input.present?
-      self.all.map{|student| student.name.include?(input)}
+      self.all.select{|student| student.name.include?(input)}
     else
       self.all
     end
